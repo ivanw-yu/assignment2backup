@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="example.ivanyu.ivanyuquizgiverassignment2.IvanYuQuizGiver"
+    >
+
+    <!-- This ScrollView will contain the LinearLayout which will contain the questions, the token displayed and the answer choices.
+         Also, the ScrollView will be full screen, meaning that the entire screen is scrollable.  -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true">
+        <!-- This LinearLayout will contain a row for the score text, the next question button and exit button-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            >
+            <!-- This TableLayout will have 5 rows, 3 of which is spanned by the TextView for the score, and the others will be shared by the question and exit buttons
+                 The TextView for the score will be placed in the leftmost position, followed by the question button and then by the exit button in the rightmost position.-->
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:stretchColumns="5">
+                <TableRow>
+                    <!-- This TextView will contain the text for the score.-->
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/score"
+                        android:layout_weight="2"
+                        android:layout_span="3"
+                        android:textSize="12sp"
+                        android:text="Score: 0/0 \nCorrect:"
+                        android:layout_alignParentEnd="false" />
+
+                    <!-- This button will give the user the option to generate another question. It will be placed next to the score TextView-->
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next \nQuestion"
+                        android:id="@+id/nextQButton"
+                        android:layout_weight="1"
+                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@+id/exitButton"
+                        android:layout_alignParentStart="false"
+                        android:layout_alignParentEnd="false" />
+
+                    <!--This button will give the user the option to exit the program. It will be placed next to the question button-->
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exit\nProgram"
+                        android:id="@+id/exitButton"
+                        android:layout_weight="1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true" />
+                </TableRow>
+            </TableLayout>
+        <!-- The questions, the token displayed and the answer choices will be displayed programmatically in this LinearLayout
+             Since the orientation is vertical, the token will be placed on top of the question, and the question will be placed
+             on top of the answer choices.-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:id="@+id/linLayout"
+            >
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
